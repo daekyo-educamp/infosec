@@ -1,0 +1,193 @@
+<!--뉴스레터-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>여름휴가철 정보보안 인스타 스타일</title>
+  <style>
+    body {
+      background: #fafafa;
+      font-family: 'Helvetica Neue', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .insta-post {
+      width: 650px;
+      background: white;
+      border: 1px solid #dbdbdb;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .insta-header {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #bbb;
+      margin-right: 10px;
+    }
+
+    .username {
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 650px;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease;
+      height: 650px;
+    }
+
+    .slide {
+      min-width: 650px;
+      height: 650px;
+      position: relative;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .buttons button {
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .insta-body {
+      padding: 12px;
+    }
+
+    .icons {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .caption {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .caption strong {
+      font-weight: bold;
+    }
+
+    .hashtags {
+      color: #00376b;
+    }
+  </style>
+</head>
+<body>
+
+<div class="insta-post">
+  <div class="insta-header">
+    <div class="avatar"> <img src="https://educamp.co.kr/assets/images/logo_g.png" alt="프로필" width="36" height="36" style="border-radius: 50%; object-fit: cover;" /></div>
+    <div class="username">정보보안 캠페인</div>
+  </div>
+
+  <div class="carousel">
+    <div class="slides" id="slideContainer">
+      <div class="slide"><img src="https://play.daekyo.co.kr/resources/images/mail/inline/20250617/haeju_jeong@daekyo.co.kr_inline_img_8AB3316A011844DABB4FCB53B2B50CF5.png" alt="1"></div>
+      <div class="slide"><img src="https://play.daekyo.co.kr/resources/images/mail/inline/20250617/haeju_jeong@daekyo.co.kr_inline_img_8AB3316A011844DABB4FCB53B2B50CF5.png" alt="2"></div>
+      <div class="slide"><img src="https://play.daekyo.co.kr/resources/images/mail/inline/20250617/haeju_jeong@daekyo.co.kr_inline_img_8AB3316A011844DABB4FCB53B2B50CF5.png" alt="3"></div>
+      <div class="slide"><img src="https://play.daekyo.co.kr/resources/images/mail/inline/20250617/haeju_jeong@daekyo.co.kr_inline_img_8AB3316A011844DABB4FCB53B2B50CF5.png" alt="4"></div>
+      <div class="slide"><img src="https://play.daekyo.co.kr/resources/images/mail/inline/20250617/haeju_jeong@daekyo.co.kr_inline_img_8AB3316A011844DABB4FCB53B2B50CF5.png" alt="5"></div>
+      <div class="slide"><img src="https://play.daekyo.co.kr/resources/images/mail/inline/20250617/haeju_jeong@daekyo.co.kr_inline_img_8AB3316A011844DABB4FCB53B2B50CF5.png" alt="6"></div>
+    </div>
+    <div class="buttons">
+      <button onclick="moveSlide(-1)">‹</button>
+      <button onclick="moveSlide(1)">›</button>
+    </div>
+  </div>
+
+  <div class="insta-body">
+    <div class="icons">❤️ 💬 📤</div>
+    <div class="caption">
+      <strong>정보보안 캠페인</strong><br>
+	🛫 여름 휴가 떠나기 전!<br>
+      보안 체크리스트로 점검하고 가요~!	<br><br>
+
+<strong>📌 PC 보안</strong><br>
+💻 휴가 떠나기 전 전원은 끄고, 잠금 암호 설정 필수!<br>
+🔌 USB·외장하드 꼭! 분리해서 잘 보관하기<br>
+📂 민감한 문서는 무조건 암호화 저장!<br>
+❌ 업무파일은 개인 기기에 저장 금지<br><br>
+
+<strong>📌 클린데스크</strong><br>
+🧻 책상 위 문서·USB·기기 방치 NO!<br>
+🔒 중요자료는 잠금 서랍 or 폐기함 처리!<br><br>
+
+<strong>📌 외부 접속 시</strong><br>
+🛜 공용 와이파이 ❌, VPN 접속해 실행하기<br>
+📱 가능하면 개인 테더링 쓰는 게 베스트<br><br>
+
+<strong>📌 기기 분실 대비</strong><br>
+💼 노트북 들고 나갈 땐 부서장 승인 必 잠금 설정 필수!<br>
+🚨 분실·도난 땐 즉시 인사총무팀에 신고<br><br>
+
+<strong>📌 자동 응답 설정</strong><br>
+✉️ 부재중 메일은 간단하게!<br>
+📇대무자 연락처, 복귀일 명시<br>
+📍과도한 정보는 제외하고, 딱 필요한 만큼만!!<br><br>
+
+<strong>📌 피싱 메일 주의</strong><br>
+🚫 "호텔 예약 확인", "부배중 택배 배송" 이런 제목 조심!<br>
+👀 출처 의심되면 열지 말고 바로 삭제!<br><br>
+
+<strong>📌 문의</strong><br>
+📞 디지털기획팀<br><br>
+
+      <span class="hashtags">#정보보안 #보안캠페인 #휴가철보안 #클린데스크 #VPN #피싱주의</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  let currentIndex = 0;
+  const totalSlides = 6;
+
+  function moveSlide(direction) {
+    const container = document.getElementById('slideContainer');
+    currentIndex += direction;
+
+    if (currentIndex < 0) currentIndex = totalSlides - 1;
+    if (currentIndex >= totalSlides) currentIndex = 0;
+
+    container.style.transform = `translateX(-${currentIndex * 650}px)`;
+  }
+</script>
+
+</body>
+</html>
