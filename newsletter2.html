@@ -17,7 +17,7 @@
     .insta-post {
       width: 100%;
       max-width: 650px;
-      background: white;
+      background: #FFFFFF;
       border: 1px solid #dbdbdb;
       border-radius: 10px;
       overflow: hidden;
@@ -32,7 +32,9 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      object-fit: cover;
+      object-fit: contain;
+  border: 1px solid #ccc;
+
     }
 
     .insta-header {
@@ -165,7 +167,7 @@
 <div class="insta-post">
   <div class="insta-header">
     <div class="avatar">
-<img src="https://educamp.co.kr/assets/images/logo_g.png" alt="프로필" style="border: 1px solid #ccc;" />
+<img src="https://educamp.co.kr/assets/images/logo_g.png" alt="프로필"/>
     </div>
     <div class="username">정보보안 캠페인</div>
   </div>
@@ -187,6 +189,7 @@
     </div>
     <div class="dots" id="dots"></div>
   </div>
+
 
   <div class="insta-body">
     <div class="icons">❤️ 💬 📤</div>
@@ -262,6 +265,7 @@
       dot.classList.toggle('active', i === currentIndex);
     });
   }
+
 </script>
 
 </body>
