@@ -1,9 +1,8 @@
-<!--뉴스레터-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>여름휴가철 정보보안</title>
   <style>
     body {
@@ -11,52 +10,58 @@
       font-family: 'Helvetica Neue', sans-serif;
       display: flex;
       justify-content: center;
-      padding: 40px;
+      padding: 20px;
+      margin: 0;
     }
 
     .insta-post {
-      width: 650px;
+      width: 100%;
+      max-width: 650px;
       background: white;
       border: 1px solid #dbdbdb;
       border-radius: 10px;
       overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .insta-header, .insta-body {
+      padding: 12px;
+    }
+
+    .avatar img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .insta-header {
       display: flex;
       align-items: center;
-      padding: 12px;
-    }
-
-    .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #bbb;
-      margin-right: 10px;
     }
 
     .username {
       font-weight: bold;
       font-size: 15px;
+      margin-left: 10px;
     }
 
     .carousel {
       position: relative;
       width: 100%;
-      height: 650px;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
     }
 
     .slides {
       display: flex;
       transition: transform 0.5s ease;
-      height: 650px;
+      height: 100%;
     }
 
     .slide {
-      min-width: 650px;
-      height: 650px;
+      min-width: 100%;
+      height: 100%;
       position: relative;
     }
 
@@ -68,26 +73,48 @@
 
     .buttons {
       position: absolute;
-      top: 50%;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
       display: flex;
       justify-content: space-between;
-      transform: translateY(-50%);
+      align-items: center;
+      z-index: 2;
     }
 
     .buttons button {
+      pointer-events: auto;
       background: rgba(0,0,0,0.5);
-      color: white;
       border: none;
-      font-size: 28px;
+      color: white;
+      font-size: 24px;
+      padding: 6px 2%;
       cursor: pointer;
-      width: 40px;
-      height: 40px;
       border-radius: 50%;
     }
 
-    .insta-body {
-      padding: 12px;
+    .dots {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .dots span {
+      width: 10px;
+      height: 10px;
+      background: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dots span.active {
+      background: #444;
     }
 
     .icons {
@@ -98,14 +125,23 @@
     .caption {
       font-size: 14px;
       line-height: 1.5;
-    }
-
-    .caption strong {
-      font-weight: bold;
+      word-break: keep-all;
     }
 
     .hashtags {
       color: #00376b;
+      font-size: 13px;
+    }
+
+    @media (max-width: 480px) {
+      .caption {
+        font-size: 13px;
+      }
+      .buttons button {
+        font-size: 20px;
+        width: 32px;
+        height: 32px;
+      }
     }
   </style>
 </head>
@@ -113,7 +149,9 @@
 
 <div class="insta-post">
   <div class="insta-header">
-    <div class="avatar"> <img src="https://educamp.co.kr/assets/images/logo_g.png" alt="프로필" width="36" height="36" style="border-radius: 50%; object-fit: cover;" /></div>
+    <div class="avatar">
+      <img src="https://educamp.co.kr/assets/images/logo_g.png" alt="프로필" />
+    </div>
     <div class="username">정보보안 캠페인</div>
   </div>
 
@@ -132,39 +170,40 @@
       <button onclick="moveSlide(-1)">‹</button>
       <button onclick="moveSlide(1)">›</button>
     </div>
+    <div class="dots" id="dots"></div>
   </div>
 
   <div class="insta-body">
     <div class="icons">❤️ 💬 📤</div>
     <div class="caption">
       <strong>정보보안 캠페인</strong><br>
-	🛫 여름 휴가 떠나기 전!<br>
-      보안 체크리스트로 점검하고 가요~!	<br><br>
+      🛫 여름 휴가 떠나기 전!<br>
+      보안 체크리스트로 점검하고 가요~!<br><br>
 
-<strong>📌 PC 보안</strong><br>
-💻 휴가 떠나기 전 전원은 끄고, 잠금 암호 설정 필수!<br>
-🔌 USB·외장하드 꼭! 분리해서 잘 보관하기<br>
-📂 민감한 문서는 무조건 암호화 저장!<br>
-❌ 업무파일은 개인 기기에 저장 금지<br><br>
+      <strong>📌 PC 보안</strong><br>
+      💻 휴가 떠나기 전 전원은 끄고, 잠금 암호 설정 필수!<br>
+      🔌 USB·외장하드 꼭! 분리해서 잘 보관하기<br>
+      📂 민감한 문서는 무조건 암호화 저장!<br>
+      ❌ 업무파일은 개인 기기에 저장 금지<br><br>
 
-<strong>📌 클린데스크</strong><br>
-🧻 책상 위 문서·USB·기기 방치 NO!<br>
-🔒 중요자료는 잠금 서랍 or 폐기함 처리!<br><br>
+      <strong>📌 클린데스크</strong><br>
+      🧻 책상 위 문서·USB·기기 방치 NO!<br>
+      🔒 중요자료는 잠금 서랍 or 폐기함 처리!<br><br>
 
-<strong>📌 기기 외부 반출 시</strong><br>
-💼 노트북 들고 나갈 땐 부서장 승인 必 반드시 잠금 설정!<br>
-🚨 분실·도난 땐 즉시 인사총무팀에 신고<br><br>
+      <strong>📌 기기 외부 반출 시</strong><br>
+      💼 노트북 들고 나갈 땐 부서장 승인 必 반드시 잠금 설정!<br>
+      🚨 분실·도난 땐 즉시 인사총무팀에 신고<br><br>
 
-<strong>📌 외부 접속 시</strong><br>
-🛜 공용 와이파이 ❌, VPN 접속해 실행하기<br>
-📱 가능하면 개인 테더링 쓰는 게 베스트<br><br>
+      <strong>📌 외부 접속 시</strong><br>
+      🛜 공용 와이파이 ❌, VPN 접속해 실행하기<br>
+      📱 가능하면 개인 테더링 쓰는 게 베스트<br><br>
 
-<strong>📌 피싱 메일 주의</strong><br>
-🚫 "호텔 예약 확인", "부배중 택배 배송" 이런 제목 조심!<br>
-👀 출처 의심되면 열지 말고 바로 삭제!<br><br>
+      <strong>📌 피싱 메일 주의</strong><br>
+      🚫 "호텔 예약 확인", "부재중 택배 배송" 이런 제목 조심!<br>
+      👀 출처 의심되면 열지 말고 바로 삭제!<br><br>
 
-<strong>📌 문의</strong><br>
-📞 디지털기획팀<br><br>
+      <strong>📌 문의</strong><br>
+      📞 디지털기획팀<br><br>
 
       <span class="hashtags">#정보보안 #보안캠페인 #휴가철보안 #클린데스크 #VPN #피싱주의</span>
     </div>
@@ -174,16 +213,43 @@
 <script>
   let currentIndex = 0;
   const totalSlides = 7;
+  const container = document.getElementById('slideContainer');
+  const dotsContainer = document.getElementById('dotsContainer');
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    dot.addEventListener('click', () => moveToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  const dots = document.querySelectorAll('.dot');
+  updateDots();
 
   function moveSlide(direction) {
-    const container = document.getElementById('slideContainer');
     currentIndex += direction;
-
     if (currentIndex < 0) currentIndex = totalSlides - 1;
     if (currentIndex >= totalSlides) currentIndex = 0;
-
-    container.style.transform = `translateX(-${currentIndex * 650}px)`;
+    updateSlide();
   }
+
+  function moveToSlide(index) {
+    currentIndex = index;
+    updateSlide();
+  }
+
+  function updateSlide() {
+    container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+
 </script>
 
 </body>
