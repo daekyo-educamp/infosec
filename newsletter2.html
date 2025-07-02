@@ -84,7 +84,6 @@
     }
 
     .buttons button {
-      pointer-events: auto;
       background: rgba(0,0,0,0.5);
       border: none;
       color: white;
@@ -157,13 +156,13 @@
 
   <div class="carousel">
     <div class="slides" id="slideContainer">
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_1.jpg?raw=true" alt="1"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_2.jpg?raw=true" alt="2"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_3.jpg?raw=true" alt="3"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_4.jpg?raw=true" alt="4"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_5.jpg?raw=true" alt="5"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_6.jpg?raw=true" alt="6"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_7.jpg?raw=true" alt="7"></div>
+      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_1.jpg?raw=true" alt="슬라이드 1"></div>
+      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_2.jpg?raw=true" alt="슬라이드 2"></div>
+      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_3.jpg?raw=true" alt="슬라이드 3"></div>
+      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_4.jpg?raw=true" alt="슬라이드 4"></div>
+      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_5.jpg?raw=true" alt="슬라이드 5"></div>
+      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_6.jpg?raw=true" alt="슬라이드 6"></div>
+      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_7.jpg?raw=true" alt="슬라이드 7"></div>
     </div>
 
     <div class="buttons">
@@ -214,16 +213,15 @@
   let currentIndex = 0;
   const totalSlides = 7;
   const container = document.getElementById('slideContainer');
-  const dotsContainer = document.getElementById('dotsContainer');
+  const dotsContainer = document.getElementById('dots');
 
   for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'dot';
+    const dot = document.createElement('span');
     dot.addEventListener('click', () => moveToSlide(i));
     dotsContainer.appendChild(dot);
   }
 
-  const dots = document.querySelectorAll('.dot');
+  const dots = dotsContainer.querySelectorAll('span');
   updateDots();
 
   function moveSlide(direction) {
@@ -248,8 +246,6 @@
       dot.classList.toggle('active', i === currentIndex);
     });
   }
-
-
 </script>
 
 </body>
