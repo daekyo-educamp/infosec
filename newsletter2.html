@@ -83,15 +83,26 @@
       z-index: 2;
     }
 
-    .buttons button {
-      background: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      font-size: 24px;
-      padding: 6px 2%;
-      cursor: pointer;
-      border-radius: 50%;
-    }
+.buttons button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  padding: 6px 2%;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons button:first-child {
+  left: 5px;
+}
+
+.buttons button:last-child {
+  right: 5px;
+}
 
     .dots {
       position: absolute;
@@ -132,16 +143,21 @@
       font-size: 13px;
     }
 
-    @media (max-width: 480px) {
-      .caption {
-        font-size: 13px;
-      }
-      .buttons button {
-        font-size: 20px;
-        width: 32px;
-        height: 32px;
-      }
-    }
+@media (max-width: 480px) {
+  .buttons button {
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+  }
+  .buttons button:first-child {
+    left: 5px;
+  }
+  .buttons button:last-child {
+    right: 5px;
+  }
+}
+
   </style>
 </head>
 <body>
