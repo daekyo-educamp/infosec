@@ -1,79 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>여름휴가철 정보보안</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      background: #ffffff;
-      font-family: 'Helvetica Neue', sans-serif;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-      margin: 0;
+    .only-pc { display: block; }
+    .only-mobile { display: none; }
+
+    @media (max-width: 767px) {
+      .only-pc { display: none; }
+      .only-mobile { display: block; }
     }
 
-    .insta-post {
-      width: 100%;
+    .slider {
       max-width: 650px;
-      background: #FFFFFF;
-      border: 1px solid #dbdbdb;
-      border-radius: 10px;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-
-    .insta-header, .insta-body {
-      padding: 2%;
-    }
-
-    .avatar img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: contain;
-  border: 1px solid #ccc;
-
-    }
-
-    .insta-header {
-      display: flex;
-      align-items: center;
-    }
-
-    .username {
-      font-weight: bold;
-      font-size: 15px;
-      margin-left: 10px;
-    }
-
-    .carousel {
-      position: relative;
-      width: 100%;
       aspect-ratio: 1 / 1;
+      margin: 0 auto;
       overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      position: relative;
     }
 
     .slides {
       display: flex;
-      transition: transform 0.5s ease;
       height: 100%;
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
     }
 
-    .slide {
-      min-width: 100%;
-      height: 100%;
-      position: relative;
-    }
-
-    .slide img {
+    .slides img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      flex-shrink: 0;
     }
 
-    .buttons {
+    .nav-buttons {
       position: absolute;
       top: 0;
       left: 0;
@@ -85,30 +48,20 @@
       z-index: 2;
     }
 
-.buttons button {
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 24px;
-  padding: 5px 2%;
-  cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.buttons button:first-child {
-  left: 5px;
-}
-
-.buttons button:last-child {
-  right: 5px;
-}
+    .nav-buttons button {
+      pointer-events: auto;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 6px 2%;
+      cursor: pointer;
+      border-radius: 0;
+    }
 
     .dots {
       position: absolute;
-      bottom: 2%;
+      bottom: 12px;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -128,144 +81,73 @@
     .dots span.active {
       background: #444;
     }
-
-    .icons {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .caption {
-      font-size: 14px;
-      line-height: 1.5;
-      word-break: keep-all;
-    }
-
-    .hashtags {
-      color: #00376b;
-      font-size: 13px;
-    }
-
-@media (max-width: 480px) {
-  .buttons button {
-    font-size: 18px;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-  }
-  .buttons button:first-child {
-    left: 5px;
-  }
-  .buttons button:last-child {
-    right: 5px;
-  }
-}
-
   </style>
 </head>
 <body>
 
-<div class="insta-post">
-  <div class="insta-header">
-    <div class="avatar">
-<img src="https://educamp.co.kr/assets/images/logo_g.png" alt="프로필"/>
+<!-- PC 슬라이더 (A) -->
+<div class="only-pc">
+  <div class="slider" id="slider">
+    <div class="slides" id="slides">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_1.png?raw=true" alt="슬라이드 1">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_2.png?raw=true" alt="슬라이드 2">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_3.png?raw=true" alt="슬라이드 3">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_4.png?raw=true" alt="슬라이드 4">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_5.png?raw=true" alt="슬라이드 5">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_6.png?raw=true" alt="슬라이드 6">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_7.png?raw=true" alt="슬라이드 7">
+    <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_8.png?raw=true" alt="슬라이드 8">
     </div>
-    <div class="username">정보보안 캠페인</div>
-  </div>
-
-  <div class="carousel">
-    <div class="slides" id="slideContainer">
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_1.jpg?raw=true" alt="슬라이드 1"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_2.jpg?raw=true" alt="슬라이드 2"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_3.jpg?raw=true" alt="슬라이드 3"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_4.jpg?raw=true" alt="슬라이드 4"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_5.jpg?raw=true" alt="슬라이드 5"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_6.jpg?raw=true" alt="슬라이드 6"></div>
-      <div class="slide"><img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_7.jpg?raw=true" alt="슬라이드 7"></div>
-    </div>
-
-    <div class="buttons">
-      <button onclick="moveSlide(-1)">‹</button>
-      <button onclick="moveSlide(1)">›</button>
+    <div class="nav-buttons">
+      <button onclick="moveSlide(-1)">&#10094;</button>
+      <button onclick="moveSlide(1)">&#10095;</button>
     </div>
     <div class="dots" id="dots"></div>
   </div>
+</div>
 
-
-  <div class="insta-body">
-    <div class="icons">❤️ 💬 📤</div>
-    <div class="caption">
-      <strong>정보보안 캠페인</strong><br>
-      ■ 여름 휴가 떠나기 전!<br>
-      보안 체크리스트로 점검하고 가요~!<br><br>
-
-      <strong>📌 PC 보안</strong><br>
-      · 휴가 떠나기 전 전원은 끄고, 잠금 암호 설정 필수!<br>
-      · USB·외장하드 꼭! 분리해서 잘 보관하기<br>
-      · 민감한 문서는 무조건 암호화 저장!<br>
-      · 업무파일은 개인 기기에 저장 금지<br><br>
-
-      <strong>📌 클린데스크</strong><br>
-      · 책상 위 문서·USB·기기 방치 NO!<br>
-      · 중요자료는 잠금 서랍 or 폐기함 처리!<br><br>
-
-      <strong>📌 기기 외부 반출 시</strong><br>
-      · 노트북 들고 나갈 땐 부서장 승인 必 반드시 잠금 설정!<br>
-      · 분실·도난 땐 즉시 인사총무팀에 신고<br><br>
-
-      <strong>📌 외부 접속 시</strong><br>
-      · 공용 와이파이 X, VPN 접속해 실행하기<br>
-      · 가능하면 개인 테더링 쓰는 게 베스트<br><br>
-
-      <strong>📌 피싱 메일 주의</strong><br>
-      · "호텔 예약 확인", "부재중 택배 배송" 이런 제목 조심!<br>
-      · 출처 의심되면 열지 말고 바로 삭제!<br><br>
-
-      <strong>📌 문의</strong><br>
-      · 디지털기획팀<br><br>
-
-      <span class="hashtags">#정보보안 #보안캠페인 #휴가철보안 #클린데스크 #VPN #피싱주의</span>
-    </div>
-  </div>
+<!-- 모바일 이미지 (B) -->
+<div class="only-mobile" style="text-align:center;">
+  <img src="https://github.com/daekyo-educamp/infosec/blob/main/7%EC%9B%94%20%EB%89%B4%EC%8A%A4%EB%A0%88%ED%84%B0_0.png?raw=true"
+       alt="모바일 이미지"
+       style="max-width: 100%; height: auto;">
 </div>
 
 <script>
+  // 슬라이더 로직 (PC만 실행)
   let currentIndex = 0;
-  const totalSlides = 7;
-  const container = document.getElementById('slideContainer');
+  const slides = document.getElementById('slides');
   const dotsContainer = document.getElementById('dots');
+  const totalSlides = slides?.children.length || 0;
 
-  for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('span');
-    dot.addEventListener('click', () => moveToSlide(i));
-    dotsContainer.appendChild(dot);
-  }
+  if (totalSlides > 0) {
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('span');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
 
-  const dots = dotsContainer.querySelectorAll('span');
-  updateDots();
+    function moveSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = totalSlides - 1;
+      if (currentIndex >= totalSlides) currentIndex = 0;
+      updateSlide();
+    }
 
-  function moveSlide(direction) {
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = totalSlides - 1;
-    if (currentIndex >= totalSlides) currentIndex = 0;
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlide();
+    }
+
+    function updateSlide() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      const dots = dotsContainer.querySelectorAll('span');
+      dots.forEach(dot => dot.classList.remove('active'));
+      if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+    }
+
     updateSlide();
   }
-
-  function moveToSlide(index) {
-    currentIndex = index;
-    updateSlide();
-  }
-
-  function updateSlide() {
-    container.style.transform = `translateX(-${currentIndex * 100}%)`;
-    updateDots();
-  }
-
-  function updateDots() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
-  }
-
 </script>
 
 </body>
